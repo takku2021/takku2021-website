@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Yoruta Setta</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/events.css">
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/running.gif" alt="Yoruta Setta" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html#">Home</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀</button>
+        <button class="hamburger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Events Section -->
+    <section id="events-map" style="padding-top: 120px;">
+        <div class="container">
+            <h1 id="events-title" class="section-title" data-typing="Events Map"></h1>
+            <div id="events-explanation" class="fade-in-up manual-trigger" style="max-width: 1000px; margin: 0 auto 1rem; padding: 0 1rem; text-align: center;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-color);">イベント参加マップ</h2>
+                <p style="color: var(--accent-color); font-family: var(--font-code); font-size: 0.9rem; opacity: 0.8;">
+                    点滅している箇所は、参加したイベントの開催都道府県を示しています
+                </p>
+            </div>
+            <div class="map-container fade-in-up">
+                <!-- Japan Map will be inserted here -->
+                <svg id="japan-map" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Dots will be generated dynamically -->
+                    <circle cx="650" cy="100" r="3" class="prefecture" data-name="北海道" />
+                    
+                    <!-- Tohoku Region -->
+                    <circle cx="620" cy="200" r="3" class="prefecture" data-name="青森" />
+                    <circle cx="640" cy="230" r="3" class="prefecture" data-name="岩手" />
+                    <circle cx="600" cy="240" r="3" class="prefecture" data-name="秋田" />
+                    <circle cx="620" cy="260" r="3" class="prefecture" data-name="宮城" />
+                    <circle cx="600" cy="270" r="3" class="prefecture" data-name="山形" />
+                    <circle cx="640" cy="280" r="3" class="prefecture" data-name="福島" />
+                    
+                    <!-- Kanto Region -->
+                    <circle cx="600" cy="320" r="3" class="prefecture" data-name="茨城" />
+                    <circle cx="580" cy="310" r="3" class="prefecture" data-name="栃木" />
+                    <circle cx="560" cy="320" r="3" class="prefecture" data-name="群馬" />
+                    <circle cx="590" cy="340" r="3" class="prefecture" data-name="千葉" />
+                    <circle cx="570" cy="340" r="3" class="prefecture" data-name="埼玉" />
+                    <circle cx="560" cy="350" r="3" class="prefecture" data-name="東京" />
+                    <circle cx="550" cy="360" r="3" class="prefecture" data-name="神奈川" />
+                    
+                    <!-- Chubu Region -->
+                    <circle cx="540" cy="330" r="3" class="prefecture" data-name="新潟" />
+                    <circle cx="520" cy="350" r="3" class="prefecture" data-name="富山" />
+                    <circle cx="510" cy="360" r="3" class="prefecture" data-name="石川" />
+                    <circle cx="500" cy="370" r="3" class="prefecture" data-name="福井" />
+                    <circle cx="530" cy="360" r="3" class="prefecture" data-name="山梨" />
+                    <circle cx="520" cy="370" r="3" class="prefecture" data-name="長野" />
+                    <circle cx="540" cy="380" r="3" class="prefecture" data-name="岐阜" />
+                    <circle cx="560" cy="380" r="3" class="prefecture" data-name="静岡" />
+                    <circle cx="550" cy="390" r="3" class="prefecture" data-name="愛知" />
+                    
+                    <!-- Kansai Region -->
+                    <circle cx="490" cy="400" r="3" class="prefecture" data-name="三重" />
+                    <circle cx="480" cy="410" r="3" class="prefecture" data-name="滋賀" />
+                    <circle cx="470" cy="420" r="3" class="prefecture" data-name="京都" />
+                    <circle cx="460" cy="430" r="3" class="prefecture" data-name="大阪" />
+                    <circle cx="480" cy="440" r="3" class="prefecture" data-name="兵庫" />
+                    <circle cx="500" cy="430" r="3" class="prefecture" data-name="奈良" />
+                    <circle cx="490" cy="450" r="3" class="prefecture" data-name="和歌山" />
+                    
+                    <!-- Chugoku Region -->
+                    <circle cx="440" cy="440" r="3" class="prefecture" data-name="鳥取" />
+                    <circle cx="420" cy="450" r="3" class="prefecture" data-name="島根" />
+                    <circle cx="430" cy="460" r="3" class="prefecture" data-name="岡山" />
+                    <circle cx="410" cy="470" r="3" class="prefecture" data-name="広島" />
+                    <circle cx="390" cy="490" r="3" class="prefecture" data-name="山口" />
+                    
+                    <!-- Shikoku Region -->
+                    <circle cx="420" cy="500" r="3" class="prefecture" data-name="徳島" />
+                    <circle cx="400" cy="510" r="3" class="prefecture" data-name="香川" />
+                    <circle cx="380" cy="520" r="3" class="prefecture" data-name="愛媛" />
+                    <circle cx="410" cy="530" r="3" class="prefecture" data-name="高知" />
+                    
+                    <!-- Kyushu Region -->
+                    <circle cx="340" cy="540" r="3" class="prefecture" data-name="福岡" />
+                    <circle cx="320" cy="550" r="3" class="prefecture" data-name="佐賀" />
+                    <circle cx="310" cy="570" r="3" class="prefecture" data-name="長崎" />
+                    <circle cx="340" cy="570" r="3" class="prefecture" data-name="熊本" />
+                    <circle cx="360" cy="580" r="3" class="prefecture" data-name="大分" />
+                    <circle cx="350" cy="600" r="3" class="prefecture" data-name="宮崎" />
+                    <circle cx="330" cy="620" r="3" class="prefecture" data-name="鹿児島" />
+                    
+                    <!-- Okinawa -->
+                    <circle cx="200" cy="750" r="3" class="prefecture prefecture-visited" data-name="沖縄" />
+                </svg>
+                
+                <div class="map-overlay">
+                    <button id="reset-zoom" style="display: none;" onclick="resetZoom()">地図全体に戻る</button>
+                    <p class="map-hint">エリアをクリックして拡大</p>
+                </div>
+                
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot visited"></span>
+                        <span>訪問済み</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot wishlist"></span>
+                        <span>いつか参加したい</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot"></span>
+                        <span>未訪問</span>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="events-list">
+                <h2 class="fade-in-up">参加したイベント一覧</h2>
+                <div id="visited-events-grid" class="events-grid stagger-grid">
+                    <!-- Dynamic Content -->
+                </div>
+
+                <h2 style="margin-top: 3rem;" class="fade-in-up">いつか参加したいイベント</h2>
+                <div id="wishlist-events-grid" class="events-grid stagger-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Event Details Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body">
+                <!-- Content injected via JS (Title, Desc, Photos) -->
+            </div>
+            <!-- Selection List for Clusters -->
+            <div id="modal-selection" style="display:none;"></div>
+        </div>
+    </div>
+    <script src="assets/data/events-data.js"></script>
+    <script src="assets/js/japan-map.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

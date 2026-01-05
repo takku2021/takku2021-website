@@ -1,0 +1,557 @@
+/* Events Page Specific Styles */
+
+#events-map {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.map-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  position: relative; /* Anchor for absolute overlays */
+}
+
+/* Japan Map SVG */
+#japan-map {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  /* Removed max-width constraint */
+}
+
+/* Prefecture Dots */
+.prefecture {
+  fill: rgba(255, 255, 255, 0.3);
+  stroke: var(--accent-color);
+  stroke-width: 0.5px; /* Thinner stroke */
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.prefecture:hover {
+  fill: var(--accent-color);
+  r: 3px; /* Reduced from 5 to prevent excessive zoom effect */
+  filter: drop-shadow(0 0 8px var(--accent-color));
+}
+
+/* Visited Prefectures */
+.prefecture-visited {
+  fill: var(--accent-color);
+  animation: pulse 2s infinite;
+}
+
+.prefecture-visited:hover {
+  fill: var(--accent-secondary);
+  filter: drop-shadow(0 0 12px var(--accent-secondary));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Light Mode Adjustments - Simplified */
+body.light-mode .prefecture {
+  stroke: #ff8c00;
+  /* Specific region fills will override this due to ID selector below */
+  fill: transparent; /* Default fallback */
+}
+
+body.light-mode .prefecture-visited {
+  fill: #ff8c00;
+}
+
+body.light-mode .prefecture-visited:hover {
+  fill: #ff6600;
+  filter: drop-shadow(0 0 12px #ff6600);
+}
+
+/* Map Legend */
+.map-legend {
+  position: absolute;
+  top: 20px; /* Moved to Top-Left */
+  left: 20px;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 100;
+  max-width: 90%; /* Prevent overflow on small screens */
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .map-legend {
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+    right: auto;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+body.light-mode .map-legend {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.legend-dot.visited {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+  animation: pulse 2s infinite;
+}
+
+.legend-dot.wishlist {
+  background: #FFD700; /* Gold */
+  border-color: #FFD700;
+  box-shadow: 0 0 5px #FFD700;
+}
+
+body.light-mode .legend-dot.visited {
+  background: #ff8c00;
+  border-color: #ff8c00;
+}
+
+body.light-mode .legend-dot.wishlist {
+  background: #FFD700; /* Gold stays same/similar */
+  border-color: #DAA520; /* GoldenRod border */
+}
+
+/* Events List */
+.events-list {
+  max-width: 1000px;
+  margin: 4rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.events-list h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  border-left: 5px solid var(--accent-color);
+  padding-left: 1rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.event-item:hover {
+  border-left-color: var(--accent-secondary);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+body.light-mode .event-item:hover {
+  border-left-color: #ff8c00;
+}
+
+.event-location {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+body.light-mode .event-location {
+  color: #ff8c00;
+}
+
+.event-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.event-date {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.event-desc {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+body.light-mode .event-desc {
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-container {
+    padding: 1rem;
+  }
+  
+  .map-legend {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .events-list h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Region Colors */
+:root {
+  --color-hokkaido: #4facfe;
+  --color-tohoku: #00f2fe;
+  --color-kanto: #43e97b;
+  --color-chubu: #fa709a;
+  --color-kansai: #fee140;
+  --color-chugoku: #f83600;
+  --color-shikoku: #a8edea;
+  --color-kyushu: #ff9a9e;
+  --color-okinawa: #30cfd0;
+}
+
+body.light-mode {
+  --color-hokkaido: #007bff;
+  --color-tohoku: #00bcd4;
+  --color-kanto: #28a745;
+  --color-chubu: #e83e8c;
+  --color-kansai: #ffc107;
+  --color-chugoku: #dc3545;
+  --color-shikoku: #17a2b8;
+  --color-kyushu: #fd7e14;
+  --color-okinawa: #20c997;
+}
+
+/* Region Colors - Unified (User Requested) - REMOVED */
+/* Reverting to original region colors defined below/above */
+
+/* Old Region Colors (Disabled/Unused) */
+/* Region-specific fills */
+/* Region-specific fills - Higher Specificity with ID */
+#japan-map .prefecture.region-hokkaido { stroke: var(--color-hokkaido); fill: var(--color-hokkaido); fill-opacity: 0.3; }
+#japan-map .prefecture.region-hokkaido:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-hokkaido)); }
+
+#japan-map .prefecture.region-tohoku { stroke: var(--color-tohoku); fill: var(--color-tohoku); fill-opacity: 0.3; }
+#japan-map .prefecture.region-tohoku:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-tohoku)); }
+
+#japan-map .prefecture.region-kanto { stroke: var(--color-kanto); fill: var(--color-kanto); fill-opacity: 0.3; }
+#japan-map .prefecture.region-kanto:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-kanto)); }
+
+#japan-map .prefecture.region-chubu { stroke: var(--color-chubu); fill: var(--color-chubu); fill-opacity: 0.3; }
+#japan-map .prefecture.region-chubu:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-chubu)); }
+
+#japan-map .prefecture.region-kansai { stroke: var(--color-kansai); fill: var(--color-kansai); fill-opacity: 0.3; }
+#japan-map .prefecture.region-kansai:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-kansai)); }
+
+#japan-map .prefecture.region-chugoku { stroke: var(--color-chugoku); fill: var(--color-chugoku); fill-opacity: 0.3; }
+#japan-map .prefecture.region-chugoku:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-chugoku)); }
+
+#japan-map .prefecture.region-shikoku { stroke: var(--color-shikoku); fill: var(--color-shikoku); fill-opacity: 0.3; }
+#japan-map .prefecture.region-shikoku:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-shikoku)); }
+
+#japan-map .prefecture.region-kyushu { stroke: var(--color-kyushu); fill: var(--color-kyushu); fill-opacity: 0.3; }
+#japan-map .prefecture.region-kyushu:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-kyushu)); }
+
+#japan-map .prefecture.region-okinawa { stroke: var(--color-okinawa); fill: var(--color-okinawa); fill-opacity: 0.3; }
+#japan-map .prefecture.region-okinawa:hover { fill-opacity: 1; filter: drop-shadow(0 0 8px var(--color-okinawa)); }
+
+/* Zoom States */
+.prefecture.faded {
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Spot Coloring (Specific Municipality/Location) - Overrides Region Colors */
+#japan-map .prefecture.spot-visited {
+  fill: var(--accent-color);
+  fill-opacity: 1;
+  stroke: var(--accent-color);
+  filter: drop-shadow(0 0 8px var(--accent-color));
+  animation: pulse 2s infinite; /* Pulsate to highlight visited spots */
+}
+
+#japan-map .prefecture.spot-wishlist {
+  fill: #ffd700; /* Gold */
+  fill-opacity: 1;
+  stroke: #ffbd00;
+  filter: drop-shadow(0 0 8px #ffd700);
+}
+
+
+
+body.light-mode #japan-map .prefecture.spot-visited {
+  fill: #ff8c00;
+  stroke: #ff8c00;
+  filter: drop-shadow(0 0 8px #ff8c00);
+}
+
+/* Modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 10% auto; 
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close-modal {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: var(--accent-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-body h3 {
+  margin-top: 0;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#modal-body img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Cluster Selection */
+.cluster-option {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cluster-option:last-child {
+  border-bottom: none;
+}
+.cluster-option:hover {
+  background: rgba(255, 255, 255, 0.05); /* Light hover in dark mode */
+  color: var(--accent-color);
+}
+body.light-mode .cluster-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Hide Reset Button when Modal is open? No, z-index handles it. */
+
+.map-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  z-index: 500; /* Ensure it stays above map elements */
+}
+
+#reset-zoom {
+  background: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+#reset-zoom:hover {
+  background: var(--accent-color);
+  color: #000;
+}
+
+.map-hint {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  opacity: 0.7;
+}
+
+/* Map Tooltip */
+.map-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: var(--font-code);
+  pointer-events: none;
+  z-index: 1000;
+  border: 1px solid var(--accent-color);
+  display: none;
+  text-transform: capitalize;
+}
+
+body.light-mode .map-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-color: #ff8c00;
+}
+
+/* Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Grid Animation */
+.stagger-grid .event-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  /* transition-delay is set inline in JS */
+}
+
+.stagger-grid.visible .event-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Event Type Badge (Matches .tag style) */
+.type-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-family: var(--font-code);
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+body.light-mode .type-badge {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Zoom Annotations */
+.label-line {
+  stroke: var(--accent-color);
+  stroke-width: 1;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.label-text {
+  fill: var(--text-color); /* White/Default */
+  font-family: var(--font-code);
+  font-weight: 500;
+  cursor: pointer;
+  text-shadow: 0 0 3px var(--bg-color), 0 0 3px var(--bg-color); /* Halo for readability */
+  transition: fill 0.2s;
+}
+
+#zoom-labels .label-text {
+  font-size: 9px;
+}
+
+/* Regional Overrides */
+/* Regional Overrides - Uncomment and adjust. Use !important or ID for specificity if needed. */
+/* #zoom-labels .label-text.region-Hokkaido { font-size: 12px; } */
+/* #zoom-labels .label-text.region-Tohoku { font-size: 10px; } */
+/* #zoom-labels .label-text.region-Kanto { font-size: 10px; } */
+#zoom-labels .label-text.region-Chubu { font-size: 3px; }
+#zoom-labels .label-text.region-Kansai { font-size: 3px; }
+/* #zoom-labels .label-text.region-Chugoku { font-size: 10px; } */
+/* #zoom-labels .label-text.region-Shikoku { font-size: 10px; } */
+#zoom-labels .label-text.region-Kyushu { font-size: 5px; }
+#zoom-labels .label-text.region-Okinawa { font-size: 12px; }
+
+#overview-labels .label-text {
+  font-size: 10px;
+}
+
+.label-text:hover {
+  fill: var(--accent-color); /* Color on Hover */
+  font-weight: 700;
+}
+
+body.light-mode .label-line {
+  stroke: #ff8c00;
+}
+
+body.light-mode .label-text {
+  fill: #333;
+  text-shadow: 0 0 3px rgba(255,255,255,0.8), 0 0 3px rgba(255,255,255,0.8);
+  font-weight: 600;
+}
+
+body.light-mode .label-text:hover {
+  fill: #ff8c00;
+}
