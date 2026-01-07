@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found - yu-ki =:)</title>
     <meta name="description" content="Page not found.">
+    <script>
+        (function() {
+            // Dynamically set base href
+            var baseHref = '/'; // Default for localhost
+            if (window.location.hostname.includes('github.io')) {
+                // Extract repository name from path for GitHub Pages
+                // Example: /takku2021-website/foo/bar -> /takku2021-website/
+                var pathSegments = window.location.pathname.split('/');
+                if (pathSegments.length > 1 && pathSegments[1]) {
+                    baseHref = '/' + pathSegments[1] + '/';
+                }
+            }
+            document.write('<base href="' + baseHref + '">');
+        })();
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 404 Specific Styles */
@@ -121,8 +136,8 @@
     <!-- Navigation -->
     <header>
         <div class="logo">
-            <a href="/takku2021-website/home/">
-                <img src="/takku2021-website/assets/img/running.gif" alt="yu-ki =:)" class="logo-img">
+            <a href="home/">
+                <img src="assets/img/running.gif" alt="yu-ki =:)" class="logo-img">
             </a>
         </div>
         <nav class="nav-menu">
@@ -146,11 +161,11 @@
         
         <!-- Biitsz Character -->
         <div class="biitsz-container" style="position: relative; height: auto; width: auto; margin-top: 2rem; right: auto; bottom: auto;">
-            <img src="assets/img/biitsz.png" alt="Biitsz the Rabbit" class="biitsz-img" style="max-width: 150px;">
+            <img src="/assets/img/biitsz.png" alt="Biitsz the Rabbit" class="biitsz-img" style="max-width: 150px;">
         </div>
 
         <div style="margin-top: 3rem;">
-            <a href="home/" class="home-btn">Return Home</a>
+            <a href="/home/" class="home-btn">Return Home</a>
         </div>
     </section>
 
@@ -162,6 +177,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
