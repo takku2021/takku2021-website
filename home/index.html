@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yu-ki =:)</title>
+    <meta name="description" content="portfolio of yu-ki =:).">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <a href="#hero">
+                <img src="../assets/img/running.gif" alt="yu-ki =:)" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <!-- <li><a href="#hero">Top</a></li> -->
+                <li><a href="#about">About</a></li>
+                <li><a href="#Experiences">Experiences</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="../events/">Events</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀</button>
+        <button class="hamburger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" id="typing-text"></h1>
+                <!-- <p class="hero-subtitle">Net-native portfolio / Create, code, play.</p> -->
+                <div class="hero-actions">
+                    <!-- Optional CTA buttons if needed -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Biitsz Character -->
+        <div class="biitsz-container">
+            <div class="speech-bubble">ようこそ！</div>
+            <img src="../assets/img/biitsz.png" alt="Biitsz the Rabbit" class="biitsz-img">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-typing="About"></h2>
+            <div class="about-content">
+                <!-- TODO: Replace with real profile -->
+                <p>
+                    いろんなことに挑戦していきたい大学院生。<br>
+                    びっつくん(@biitsz_bits)のマネージャーをやってます。
+                </p>
+                <br>
+                <h3>Likes</h3>
+                <p>🐾Kemono(rabbit, fox, dog...) / Fursuits</p>
+                <p>🎮Rythem Games(Taiko no Tatsujin, DDR, Maimai)</p>
+                <p>🎨Drawing</p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Experiences">
+        <div class="container">
+            <h2 class="section-title" data-typing="Experiences"></h2>
+            <div class="timeline">
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023/2/18</div>
+                    <div class="timeline-content">
+                        <h3>RyuMoFu 設立</h3>
+                        <p>琉球大学を拠点としたケモノ文化を楽しむ<br>
+                            インカレサークル「RyuMoFu（旧：琉大もふサー）」を設立</p>
+                    </div>
+                </div>
+
+                <!-- Add more timeline items here -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023/2/18 <br> - 2025/3/31</div>
+                    <div class="timeline-content">
+                        <h3>RyuMoFu 代表</h3>
+                        <p>RyuMoFuの初代代表として活動</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023/12 <br> - 2025/3</div>
+                    <div class="timeline-content">
+                        <h3>Prompt Engineer</h3>
+                        <p>企業にて、LLM（大規模言語モデル）を用いたプロンプト設計・改善業務に従事していました。</p>
+                    </div>
+                </div>
+               
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <div class="container">
+            <h2 class="section-title" data-typing="Works"></h2>
+            <div class="works-grid">
+                
+                <!-- Work Card: RyuMoFu -->
+                <article class="work-card">
+                    <div class="work-thumb-container">
+                        <img src="../assets/img/ryumofu-icon.png" alt="RyuMoFu Logo" class="work-thumb-img">
+                    </div>
+                    <!-- Title removed or kept? Sketch didn't show title explicity, assuming logo has text or title is below. 
+                         I'll put the title below the image for accessibility/clarity, but keep it simple. -->
+                    <!-- <h3 class="work-title">RyuMoFu Official Website</h3> (Optional: Commented out if only image is desired as per sketch strictness, but usually title is needed. I will keep title but maybe smaller or standard) -->
+                    <!-- Let's keep the title but below image. -->
+                    <h3 class="work-title">RyuMoFu 公式サイト</h3>
+                    <div class="work-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Design</span>
+                    </div>
+                    <p class="work-desc">
+                        沖縄を拠点とする、ケモノ文化を楽しむインカレサークルの公式Webサイト。<br>
+                        部員が創作したオリジナルキャラクターを紹介したり、過去の活動を掲載したりしています。
+                    </p>
+                    <a href="https://ryumofu.jp/" class="work-link" target="_blank">Visit Site &rarr;</a>
+                </article>
+
+                <!-- Work Card 1 -->
+                <article class="work-card">
+                    <div class="work-thumb-container">
+                        <img src="../assets/img/Univ_Ryukyus_EnvSus_report_2023_ver4.png" alt="琉球大学環境報告書 2023表紙デザイン" class="work-thumb-img">
+                    </div>
+                    <h3 class="work-title">琉球大学環境報告書 2023<br>表紙デザイン</h3>
+                    <div class="work-tags">
+                        <span class="tag">Design</span>
+                    </div>
+                    <p class="work-desc">
+                        環境報告書の表紙をデザインしました。
+                    </p>
+                    <a href="https://ecocampus.jim.u-ryukyu.ac.jp/wp/wp-content/uploads/2023/11/efedf23046b598db16010ebdb1989538.pdf" class="work-link">View Gallery &rarr;</a>
+                </article>
+
+                <!-- Add more cards here -->
+                <!-- <article class="work-card">
+                    <h3 class="work-title">Biitsz Fanart</h3>
+                    <div class="work-tags">
+                        <span class="tag">Illustration</span>
+                    </div>
+                    <p class="work-desc">
+                        オリジナルキャラクター「びっつ」のイラストログ。<br>
+                        2025年の活動まとめ。
+                    </p>
+                    <a href="#" class="work-link">View Gallery &rarr;</a>
+                </article> -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <!-- X (Twitter) -->
+                <a href="https://x.com/takku_2021" class="social-link" target="_blank" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/takku2021" class="social-link" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+            </div>
+            <p>&copy; 2026 takku2021. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
