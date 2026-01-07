@@ -682,6 +682,7 @@ footer {
     padding-top: 5rem;
     transition: right 0.3s ease; /* Changed from left to right */
     border-left: 1px solid var(--border-color); /* Changed from border-right to border-left */
+    z-index: 100; /* Ensure it sits above theme toggle but below hamburger (101) */
   }
 
   .light-mode .nav-menu {
