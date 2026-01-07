@@ -649,6 +649,21 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Center Theme Toggle on Mobile */
+  #theme-toggle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin: 0 auto; /* Horizontal centering */
+    transform: translateY(-50%); /* Vertical centering only */
+    width: 40px; /* Explicit width required for margin: auto to work effectively if needed, though block width is defined above */
+  }
+
+  #theme-toggle:hover {
+    transform: translateY(-50%) rotate(15deg);
+  }
+
   /* Mobile Navigation */
   .hamburger {
     display: flex; /* Show on mobile */
