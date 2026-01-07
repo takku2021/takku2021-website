@@ -121,14 +121,14 @@
     <!-- Navigation -->
     <header>
         <div class="logo">
-            <a href="home/">
-                <img src="assets/img/running.gif" alt="yu-ki =:)" class="logo-img">
+            <a href="/takku2021-website/home/">
+                <img src="/takku2021-website/assets/img/running.gif" alt="yu-ki =:)" class="logo-img">
             </a>
         </div>
         <nav class="nav-menu">
             <ul>
                 <li><a href="home/">Home</a></li>
-                <li><a href="Events/">Events</a></li>
+                <li><a href="events/">Events</a></li>
             </ul>
         </nav>
         <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀</button>
@@ -163,33 +163,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        // Override speech bubble behavior for 404 specific message
-        document.addEventListener('DOMContentLoaded', () => {
-            const bubble = document.querySelector('.speech-bubble');
-            if (bubble) {
-                // Force show the 404 message initially
-                bubble.classList.add('show');
-                
-                // Customize messages for 404
-                const notFoundMessages = [
-                    'ここには何もないみたい',
-                    '道に迷っちゃった？',
-                    '404だよ！',
-                ];
-                
-                // Override the click handler from main.js if possible, or just add a new one that might conflict but is okay
-                const biitsz = document.querySelector('.biitsz-img');
-                if (biitsz) {
-                    biitsz.addEventListener('click', (e) => {
-                        e.stopPropagation(); // Try to stop main.js handler (though it's already bound)
-                        // Actually main.js is likely already bound. 
-                        // It's okay if it cycles through standard messages too, or we can just let it be.
-                        // Let's just let it be mixed, it's fun.
-                    });
-                }
-            }
-        });
-    </script>
 </body>
 </html>
